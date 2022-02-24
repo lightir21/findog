@@ -24,11 +24,12 @@ const Post = ({ addDog, firebaseConfig, storage }) => {
     location: "",
     description: "",
     imageName: "",
+    timestamp: serverTimestamp(),
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addDog({ ...dog, createdAt: serverTimestamp() });
+    addDog(dog);
   };
 
   const handleChange = (e) => {

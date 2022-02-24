@@ -24,21 +24,26 @@ function App() {
   const db = getFirestore(app);
   const storage = getStorage(app);
   const dogsColRef = collection(db, "dogs");
-  const dogsColRefQuery = query(dogsColRef, orderBy("createdAt"));
+
+  // useEffect(() => {
+  //   const getDogs = async () => {
+  //     const data = await getDocs(dogsColRef);
+  //     setDogs(data.docs.map((dog) => ({ ...dog.data() })));
+  //   };
+  //   getDogs();
+  // }, []);
 
   useEffect(() => {
-    const getDogs = async () => {
-      const data = await getDocs(dogsColRef);
-      setDogs(data.docs.map((dog) => ({ ...dog.data() })));
-    };
-    getDogs();
+    const dogsColRefQuery = query(dogsColRef, orderBy("timestamp", "desc"));
+    const unsub = onSnapshot(dogsColRefQuery, (snapshot) =>
+      setDogs(snapshot.docs.map((doc) => doc.data()))
+    );
+    return unsub;
   }, []);
 
   console.log(dogs);
   const addDog = (dog) => {
-    addDoc(dogsColRef, {
-      dog,
-    });
+    addDoc(dogsColRef, dog);
   };
 
   return (
