@@ -1,0 +1,28 @@
+.form {
+  max-width: 120rem;
+  margin: 10% auto;
+  font-size: 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+
+  &__box {
+    display: flex;
+    justify-content: center;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__input {
+  }
+
+  &__file {
+    align-self: center;
+  }
+
+  &__btn {
+    align-self: center;
+  }
+}
