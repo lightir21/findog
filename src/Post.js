@@ -28,7 +28,7 @@ const Post = ({ addDog, firebaseConfig, storage }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addDog({ ...dog, createdAt: new Date() });
+    addDog({ ...dog, createdAt: serverTimestamp() });
   };
 
   const handleChange = (e) => {

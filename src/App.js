@@ -7,7 +7,8 @@ import {
   addDoc,
   query,
   orderBy,
-} from "firebase/firestore/lite";
+  onSnapshot,
+} from "firebase/firestore";
 
 import { getStorage, ref } from "firebase/storage";
 import React, { useState, useEffect } from "react";
@@ -32,8 +33,8 @@ function App() {
     };
     getDogs();
   }, []);
-  console.log(dogs);
 
+  console.log(dogs);
   const addDog = (dog) => {
     addDoc(dogsColRef, {
       dog,
