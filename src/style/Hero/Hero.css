@@ -12,6 +12,7 @@ html {
 
 body {
   line-height: 1;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .container {
@@ -40,23 +41,31 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.hero__display-box {
   -webkit-transform: translateX(-10%);
           transform: translateX(-10%);
 }
 
 .hero__title {
-  font-size: 14rem;
+  font-size: 13.5rem;
   color: #f7d66f;
+  margin-top: 2.4rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
 .hero__secondary-title {
   color: #f7d66f;
-  font-size: 4.2rem;
+  font-size: 3.7rem;
+  margin-bottom: 3.2rem;
 }
 
 .hero__box {
-  width: 60%;
   background-color: rgba(51, 51, 51, 0.4);
+  padding: 4rem;
+  border-radius: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,5 +76,40 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.hero__box-title, .hero__form-box, .hero__form-input {
+  font-size: 3.5rem;
+  color: #fdecb8;
+}
+
+.hero__box-title {
+  margin-bottom: 4.2rem;
+}
+
+.hero__form-box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  -webkit-column-gap: 2.6rem;
+          column-gap: 2.6rem;
+}
+
+.hero__form-box:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+.hero__form-label {
+  -ms-grid-column-align: start;
+      justify-self: start;
+}
+
+.hero__form-input {
+  width: 14rem;
+  border: 2px solid #fdecb8;
+  border-radius: 2px;
+  background-color: transparent;
 }
 /*# sourceMappingURL=Hero.css.map */

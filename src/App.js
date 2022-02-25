@@ -1,29 +1,14 @@
 import "./style/App.css";
-import { initializeApp } from "firebase/app";
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  addDoc,
-  query,
-  orderBy,
-  onSnapshot,
-} from "firebase/firestore";
 
-import { getStorage, ref } from "firebase/storage";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import firebaseConfig from "./firebase";
 import Post from "./Post";
 import Home from "./Home";
+import { query, orderBy, onSnapshot } from "firebase/firestore";
+import { addDog, dogsColRef, storage } from "./firebaseApi";
 
 function App() {
   const [dogs, setDogs] = useState([]);
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const storage = getStorage(app);
-  const dogsColRef = collection(db, "dogs");
 
   // useEffect(() => {
   //   const getDogs = async () => {
@@ -42,9 +27,6 @@ function App() {
   }, []);
 
   console.log(dogs);
-  const addDog = (dog) => {
-    addDoc(dogsColRef, dog);
-  };
 
   return (
     <BrowserRouter>
@@ -52,13 +34,7 @@ function App() {
         <Route exact path="/" element={<Home />}></Route>
         <Route
           path="/post"
-          element={
-            <Post
-              addDog={addDog}
-              storage={storage}
-              firebaseConfig={firebaseConfig}
-            />
-          }
+          element={<Post addDog={addDog} storage={storage} />}
         ></Route>
       </Routes>
     </BrowserRouter>

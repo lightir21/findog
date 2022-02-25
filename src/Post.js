@@ -7,8 +7,9 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import firebaseConfig from "./firebase";
 
-const Post = ({ addDog, firebaseConfig, storage }) => {
+const Post = ({ addDog, storage }) => {
   // const [imageName, setImageName] = useState("");
   // const [name, setName] = useState("");
   // const [breed, setBreed] = useState("");
