@@ -7,9 +7,15 @@
 
 html {
   font-size: 62.5%;
+  direction: rtl;
 }
 
 body {
   line-height: 1;
+}
+
+.container {
+  max-width: 140rem;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=Main.css.map */

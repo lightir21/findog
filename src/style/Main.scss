@@ -1,3 +1,10 @@
+$color-primary: #fdecb8;
+$color-primary-dark: #f7d66f;
+$color-primary-light: #fff9e8;
+
+$color-grey-dark-1: #333;
+$color-grey-dark-2: #666;
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +13,14 @@
 
 html {
   font-size: 62.5%;
+  direction: rtl;
 }
 
 body {
   line-height: 1;
+}
+
+.container {
+  max-width: 140rem;
+  margin: 0 auto;
 }

@@ -1,0 +1,37 @@
+@import "../Main.scss";
+
+.hero {
+  background-image: url("../../images/Hero-web.webp");
+  background-size: cover;
+  height: 98vh;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__display {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    transform: translateX(-10%);
+  }
+
+  &__title {
+    font-size: 14rem;
+    color: $color-primary-dark;
+  }
+
+  &__secondary-title {
+    color: $color-primary-dark;
+    font-size: 4.2rem;
+  }
+
+  &__box {
+    width: 60%;
+    background-color: rgba(#333, 0.4);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
