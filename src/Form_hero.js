@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 
 const Breed = ({ setIsLoading, dogs, english, hebrew }) => {
   const [uniqueBreed, setUniqueBreed] = useState([]);
+  const ages = ["גור", "צעיר", "בוגר", "מבוגר"];
 
   useEffect(() => {
     setIsLoading(true);
     const dogsArr = [];
     const newDogs = dogs.map((dog) => {
       const splitted = dog?.[english].split("/");
-      dogsArr.push(Math.trunc(...splitted));
+      dogsArr.push(...splitted);
     });
     const uniqueObj = new Set(dogsArr);
     const uniqueArr = uniqueObj.values();
@@ -21,9 +22,13 @@ const Breed = ({ setIsLoading, dogs, english, hebrew }) => {
         {hebrew}
       </label>
       <select name={english} id={english} className="hero__form-input">
-        {uniqueBreed.map((item) => {
-          return <option key={item} value={item}>{`${item}`}</option>;
-        })}
+        {english === "age"
+          ? ages.map((item) => {
+              return <option key={item} value={item}>{`${item}`}</option>;
+            })
+          : uniqueBreed.map((item) => {
+              return <option key={item} value={item}>{`${item}`}</option>;
+            })}
       </select>
     </div>
   );
