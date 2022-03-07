@@ -70,10 +70,17 @@
   &__form-label {
     justify-self: start;
   }
+
   &__form-input {
     width: 14rem;
     border: 2px solid $color-primary;
     border-radius: 2px;
     background-color: transparent;
+    position: relative;
+    font-size: 90%;
   }
+}
+
+select option {
+  background-color: #999;
 }

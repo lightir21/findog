@@ -31,6 +31,16 @@ const Post = ({ addDog, storage }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addDog(dog);
+    setDog({
+      name: "",
+      age: 0,
+      breed: "",
+      gender: "זכר",
+      location: "",
+      description: "",
+      imageName: "",
+      timestamp: serverTimestamp(),
+    });
   };
 
   const handleChange = (e) => {

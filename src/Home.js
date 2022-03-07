@@ -1,10 +1,10 @@
 import React from "react";
 import Hero from "./Hero";
 
-function Home() {
+function Home({ dogs }) {
   return (
     <>
-      <Hero />
+      <Hero dogs={dogs} />
     </>
   );
 }

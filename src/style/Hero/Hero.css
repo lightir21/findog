@@ -111,5 +111,11 @@ body {
   border: 2px solid #fdecb8;
   border-radius: 2px;
   background-color: transparent;
+  position: relative;
+  font-size: 90%;
+}
+
+select option {
+  background-color: #999;
 }
 /*# sourceMappingURL=Hero.css.map */

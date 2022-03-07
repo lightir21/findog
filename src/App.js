@@ -8,6 +8,7 @@ import { query, orderBy, onSnapshot } from "firebase/firestore";
 import { addDog, dogsColRef, storage } from "./firebaseApi";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [dogs, setDogs] = useState([]);
 
   // useEffect(() => {
@@ -19,19 +20,23 @@ function App() {
   // }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     const dogsColRefQuery = query(dogsColRef, orderBy("timestamp", "desc"));
     const unsub = onSnapshot(dogsColRefQuery, (snapshot) =>
       setDogs(snapshot.docs.map((doc) => doc.data()))
     );
+
     return unsub;
   }, []);
 
-  console.log(dogs);
+  if (isLoading === false) {
+    // console.log(dogs);
+  }
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home />}></Route>
+        <Route exact path="/" element={<Home dogs={dogs} />}></Route>
         <Route
           path="/post"
           element={<Post addDog={addDog} storage={storage} />}
