@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from "react";
-import "./style/Hero/Hero.css";
-import Form_hero from "./Form_hero";
+import "../style/Hero/Hero.css";
+import Form_hero from "../components/Form_hero";
 
-const Hero = ({ dogs }) => {
+const Hero = ({ dogs, setDogs }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [filter, setFilter] = useState({
+    breed: "",
+    age: 0,
+    gender: "",
+    location: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setDogs(() => {
+      return dogs.filter((dog) => {
+        return dog.breed === filter.breed;
+      });
+    });
+  };
 
   if (!isLoading) {
     return (
@@ -19,27 +34,32 @@ const Hero = ({ dogs }) => {
                 <Form_hero
                   setIsLoading={setIsLoading}
                   dogs={dogs}
+                  setFilter={setFilter}
                   english="breed"
                   hebrew="גזע"
                 />
                 <Form_hero
                   setIsLoading={setIsLoading}
                   dogs={dogs}
+                  setFilter={setFilter}
                   english="age"
                   hebrew="גיל"
                 />
                 <Form_hero
                   setIsLoading={setIsLoading}
                   dogs={dogs}
+                  setFilter={setFilter}
                   english="gender"
                   hebrew="מין"
                 />
                 <Form_hero
                   setIsLoading={setIsLoading}
                   dogs={dogs}
+                  setFilter={setFilter}
                   english="location"
                   hebrew="מיקום"
                 />
+                <button onClick={handleSubmit}>click me</button>
               </form>
             </div>
           </div>

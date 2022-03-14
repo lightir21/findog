@@ -7,10 +7,10 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import firebaseConfig from "./firebase";
+import firebaseConfig from "../firebase";
 
 const Post = ({ addDog, storage }) => {
-  // const [imageName, setImageName] = useState("");
+  // const [url, seturl] = useState("");
   // const [name, setName] = useState("");
   // const [breed, setBreed] = useState("");
   // const [gender, setGender] = useState("זכר");
@@ -24,7 +24,7 @@ const Post = ({ addDog, storage }) => {
     gender: "זכר",
     location: "",
     description: "",
-    imageName: "",
+    url: "",
     timestamp: serverTimestamp(),
   });
 
@@ -38,7 +38,7 @@ const Post = ({ addDog, storage }) => {
       gender: "זכר",
       location: "",
       description: "",
-      imageName: "",
+      url: "",
       timestamp: serverTimestamp(),
     });
   };
@@ -52,10 +52,15 @@ const Post = ({ addDog, storage }) => {
 
   const uploadHandler = (e) => {
     const file = e.target.files[0];
+
     let fileRef = ref(storage, file.name);
-    setDog((dog) => ({ ...dog, imageName: file.name }));
+
+    getDownloadURL(fileRef).then((url) =>
+      setDog((dog) => ({ ...dog, url: url }))
+    );
 
     const uploadTask = uploadBytesResumable(fileRef, file);
+    console.log(fileRef);
   };
 
   return (

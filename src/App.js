@@ -2,8 +2,8 @@ import "./style/App.css";
 
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Post from "./Post";
-import Home from "./Home";
+import Post from "./pages/Post";
+import Home from "./pages/Home";
 import { query, orderBy, onSnapshot } from "firebase/firestore";
 import { addDog, dogsColRef, storage } from "./firebaseApi";
 
@@ -36,7 +36,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home dogs={dogs} />}></Route>
+        <Route
+          exact
+          path="/"
+          element={<Home dogs={dogs} setDogs={setDogs} />}
+        ></Route>
         <Route
           path="/post"
           element={<Post addDog={addDog} storage={storage} />}

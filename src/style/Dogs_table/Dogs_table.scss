@@ -1,0 +1,51 @@
+@import "../Main.scss";
+
+.dogs_table {
+  background-color: $color-primary-light;
+  padding: 5rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  row-gap: 5rem;
+
+  &__dog-box {
+    width: 70%;
+    height: 40rem;
+    background-color: $color-primary;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  &__img-box {
+    height: 50%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__dog-description {
+    padding: 0.5rem;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 1.4rem;
+
+    &-name {
+      font-size: 1.8rem;
+      text-decoration: underline;
+    }
+
+    &-breed {
+      margin-bottom: 0.6rem;
+    }
+
+    &-location {
+    }
+  }
+}
