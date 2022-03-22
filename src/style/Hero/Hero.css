@@ -16,14 +16,15 @@ body {
 }
 
 .container {
-  max-width: 140rem;
   margin: 0 auto;
 }
 
 .hero {
   background-image: url("../../images/Hero-web.webp");
   background-size: cover;
-  height: 98vh;
+  height: auto;
+  width: 100%;
+  padding-bottom: 7rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];

@@ -13,14 +13,16 @@ const Hero = ({ dogs, setDogs, filteredDogs, setFilteredDogs }) => {
   console.log(filter);
 
   useEffect(() => {
+    const { breed, age, gender, location } = filter;
+
     if (filter) {
       setFilteredDogs(() => {
         return dogs.filter((dog) => {
           return (
-            dog.breed.includes(filter.breed) ||
-            dog.age === filter.age ||
-            dog.gender === filter.gender ||
-            dog.location === filter.location
+            (dog.breed.includes(breed) || filter.breed === "") &&
+            (dog.age === age || filter.age === null) &&
+            (dog.gender === gender || filter.gender === "") &&
+            (dog.location === location || filter.location === "")
           );
         });
       });
@@ -31,7 +33,7 @@ const Hero = ({ dogs, setDogs, filteredDogs, setFilteredDogs }) => {
 
   if (!isLoading) {
     return (
-      <section className="hero container">
+      <section className="hero ">
         <div className="hero__blank"></div>
         <div className="hero__display">
           <div className="hero__display-box">
