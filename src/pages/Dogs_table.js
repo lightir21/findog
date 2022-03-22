@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../style/Dogs_table/Dogs_table.css";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
-const Dogs_table = ({ dogs }) => {
-  const storage = getStorage();
-  const getImage = (imageRef) => {};
-
+const Dogs_table = ({ dogs, filteredDogs }) => {
   const checkAges = (dog) => {
     if (dog.age < "1") {
       return ` ${dog.age} חודשים `;
@@ -16,12 +13,12 @@ const Dogs_table = ({ dogs }) => {
       return ` ${dog.age} שנים `;
     }
   };
-
+  console.log(filteredDogs);
   let image = "";
   console.log(dogs);
   return (
     <div className="dogs_table container">
-      {dogs?.map((dog) => {
+      {filteredDogs?.map((dog) => {
         return (
           <div className="dogs_table__dog-box" key={dog.name}>
             <div className="dogs_table__img-box">

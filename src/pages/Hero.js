@@ -2,23 +2,32 @@ import React, { useState, useEffect } from "react";
 import "../style/Hero/Hero.css";
 import Form_hero from "../components/Form_hero";
 
-const Hero = ({ dogs, setDogs }) => {
+const Hero = ({ dogs, setDogs, filteredDogs, setFilteredDogs }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [filter, setFilter] = useState({
     breed: "",
-    age: 0,
+    age: null,
     gender: "",
     location: "",
   });
+  console.log(filter);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setDogs(() => {
-      return dogs.filter((dog) => {
-        return dog.breed === filter.breed;
+  useEffect(() => {
+    if (filter) {
+      setFilteredDogs(() => {
+        return dogs.filter((dog) => {
+          return (
+            dog.breed.includes(filter.breed) ||
+            dog.age === filter.age ||
+            dog.gender === filter.gender ||
+            dog.location === filter.location
+          );
+        });
       });
-    });
-  };
+    } else {
+      setFilteredDogs(dogs);
+    }
+  }, [filter]);
 
   if (!isLoading) {
     return (
@@ -59,7 +68,7 @@ const Hero = ({ dogs, setDogs }) => {
                   english="location"
                   hebrew="מיקום"
                 />
-                <button onClick={handleSubmit}>click me</button>
+                {/* <button onClick={handleSubmit}>click me</button> */}
               </form>
             </div>
           </div>

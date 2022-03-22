@@ -2,11 +2,16 @@ import React from "react";
 import Hero from "./Hero";
 import Dogs_table from "./Dogs_table";
 
-function Home({ dogs, setDogs }) {
+function Home({ dogs, setDogs, filteredDogs, setFilteredDogs }) {
   return (
     <>
-      <Hero dogs={dogs} setDogs={setDogs} />
-      <Dogs_table dogs={dogs} />
+      <Hero
+        dogs={dogs}
+        setDogs={setDogs}
+        filteredDogs={filteredDogs}
+        setFilteredDogs={setFilteredDogs}
+      />
+      <Dogs_table dogs={dogs} filteredDogs={filteredDogs} />
     </>
   );
 }

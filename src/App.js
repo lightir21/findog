@@ -8,8 +8,9 @@ import { query, orderBy, onSnapshot } from "firebase/firestore";
 import { addDog, dogsColRef, storage } from "./firebaseApi";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [dogs, setDogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [filteredDogs, setFilteredDogs] = useState([]);
 
   // useEffect(() => {
   //   const getDogs = async () => {
@@ -18,6 +19,10 @@ function App() {
   //   };
   //   getDogs();
   // }, []);
+
+  useEffect(() => {
+    setFilteredDogs(dogs);
+  }, [dogs]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -39,7 +44,14 @@ function App() {
         <Route
           exact
           path="/"
-          element={<Home dogs={dogs} setDogs={setDogs} />}
+          element={
+            <Home
+              dogs={dogs}
+              setDogs={setDogs}
+              filteredDogs={filteredDogs}
+              setFilteredDogs={setFilteredDogs}
+            />
+          }
         ></Route>
         <Route
           path="/post"

@@ -18,7 +18,12 @@ const Breed = ({ dogs, english, hebrew, setFilter }) => {
   }, [dogs]);
 
   const handleChange = (e) => {
-    setFilter((item) => ({ ...item, [e.target.name]: e.target.value }));
+    if (e.target.value !== "בחר") {
+      setFilter((item) => ({ ...item, [e.target.name]: e.target.value }));
+    }
+    if (e.target.value === "בחר") {
+      setFilter((item) => ({ ...item, [e.target.name]: "" }));
+    }
   };
 
   return (
