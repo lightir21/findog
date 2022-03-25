@@ -13,9 +13,9 @@ const Dogs_table = ({ dogs, filteredDogs }) => {
       return ` ${dog.age} שנים `;
     }
   };
-  console.log(filteredDogs);
+
   let image = "";
-  console.log(dogs);
+
   return (
     <div className="dogs_table container">
       {filteredDogs?.map((dog) => {

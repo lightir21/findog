@@ -10,7 +10,6 @@ const Hero = ({ dogs, setDogs, filteredDogs, setFilteredDogs }) => {
     gender: "",
     location: "",
   });
-  console.log(filter);
 
   const ageFilter = (age, dog) => {
     if (age === "גור") {
