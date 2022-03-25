@@ -12,6 +12,21 @@ const Hero = ({ dogs, setDogs, filteredDogs, setFilteredDogs }) => {
   });
   console.log(filter);
 
+  const ageFilter = (age, dog) => {
+    if (age === "גור") {
+      return 0.01 <= Number(dog.age) && Number(dog.age) <= 0.12;
+    }
+    if (age === "צעיר") {
+      return 1 <= Number(dog.age) && Number(dog.age) <= 3;
+    }
+    if (age === "בוגר") {
+      return 3 < Number(dog.age) && Number(dog.age) <= 10;
+    }
+    if (age === "מבוגר") {
+      return 10 < Number(dog.age);
+    }
+  };
+
   useEffect(() => {
     const { breed, age, gender, location } = filter;
 
@@ -20,7 +35,7 @@ const Hero = ({ dogs, setDogs, filteredDogs, setFilteredDogs }) => {
         return dogs.filter((dog) => {
           return (
             (dog.breed.includes(breed) || filter.breed === "") &&
-            (dog.age === age || filter.age === null) &&
+            (ageFilter(age, dog) || filter.age === null) &&
             (dog.gender === gender || filter.gender === "") &&
             (dog.location === location || filter.location === "")
           );

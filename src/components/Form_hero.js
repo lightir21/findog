@@ -24,6 +24,9 @@ const Breed = ({ dogs, english, hebrew, setFilter }) => {
     if (e.target.value === "בחר") {
       setFilter((item) => ({ ...item, [e.target.name]: "" }));
     }
+    if (e.target.name === "age" && e.target.value === "בחר") {
+      setFilter((item) => ({ ...item, [e.target.name]: null }));
+    }
   };
 
   return (
