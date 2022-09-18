@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -17,5 +16,4 @@ body {
 
 .container {
   margin: 0 auto;
-}
-/*# sourceMappingURL=Main.css.map */
+}/*# sourceMappingURL=Main.css.map */

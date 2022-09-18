@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -25,30 +24,17 @@ body {
   height: auto;
   width: 100%;
   padding-bottom: 7rem;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
-
 .hero__display {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  flex-direction: column;
 }
-
 .hero__display-box {
-  -webkit-transform: translateX(-10%);
-          transform: translateX(-10%);
+  transform: translateX(-10%);
 }
-
 .hero__title {
   font-size: 13.5rem;
   color: #f7d66f;
@@ -56,57 +42,39 @@ body {
   margin-bottom: 2rem;
   font-weight: bold;
 }
-
 .hero__secondary-title {
   color: #f7d66f;
   font-size: 3.7rem;
   margin-bottom: 3.2rem;
 }
-
 .hero__box {
   background-color: rgba(51, 51, 51, 0.4);
   padding: 4rem;
   border-radius: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
-
 .hero__box-title, .hero__form-box, .hero__form-input {
   font-size: 3.5rem;
   color: #fdecb8;
 }
-
 .hero__box-title {
   margin-bottom: 4.2rem;
 }
-
 .hero__form-box {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  -webkit-column-gap: 2.6rem;
-          column-gap: 2.6rem;
+  -moz-column-gap: 2.6rem;
+       column-gap: 2.6rem;
 }
-
 .hero__form-box:not(:last-child) {
   margin-bottom: 2.4rem;
 }
-
 .hero__form-label {
-  -ms-grid-column-align: start;
-      justify-self: start;
+  justify-self: start;
 }
-
 .hero__form-input {
   width: 14rem;
   border: 2px solid #fdecb8;
@@ -118,5 +86,4 @@ body {
 
 select option {
   background-color: #999;
-}
-/*# sourceMappingURL=Hero.css.map */
+}/*# sourceMappingURL=Hero.css.map */
