@@ -1,4 +1,4 @@
-#FinDog
+# FinDog
 
 ## An adopting dogs platform by various categories
 
